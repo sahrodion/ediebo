@@ -1,65 +1,220 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/Container";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Button } from "@/components/Button";
+import { Badge } from "@/components/Badge";
+import { ProjectCard } from "@/components/ProjectCard";
+import { Timeline } from "@/components/Timeline";
+import { TestimonialCard } from "@/components/TestimonialCard";
+import { PricingCard } from "@/components/PricingCard";
+import { MotionWrapper } from "@/components/MotionWrapper";
+import { fadeUp } from "@/components/motion";
+import { BackgroundLines } from "@/components/BackgroundLines";
+import { projects } from "@/content/projects";
+import { servicesOverview } from "@/content/services";
+import { testimonials } from "@/content/testimonials";
+
+const processSteps = [
+  {
+    title: "Discovery",
+    description:
+      "Clarify goals, audience, and the precise story the site must tell.",
+  },
+  {
+    title: "Structure",
+    description:
+      "Define architecture, conversion paths, and content hierarchy.",
+  },
+  {
+    title: "Design",
+    description:
+      "Craft a calm, premium UI with obsessive spacing and typographic detail.",
+  },
+  {
+    title: "Build",
+    description:
+      "Develop a fast, accessible site with high Lighthouse scores.",
+  },
+  {
+    title: "Launch + Optimise",
+    description:
+      "Ship, monitor performance, and refine for higher conversion.",
+  },
+];
+
+const pricing = [
+  {
+    title: "Starter",
+    price: "£120",
+    description: "Simple one-page site delivered fast.",
+    features: ["1 page", "Live in 48 hrs", "Mobile ready"],
+  },
+  {
+    title: "Business",
+    price: "£250",
+    description: "Best for small businesses who need leads.",
+    features: ["3 pages", "Contact + WhatsApp", "Most popular choice"],
+    highlighted: true,
+  },
+  {
+    title: "Pro",
+    price: "£450",
+    description: "More space for services and bookings.",
+    features: ["5 pages", "Booking form", "Analytics setup"],
+  },
+];
 
 export default function Home() {
+  const featuredProjects = projects.filter((project) => project.featured);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="bg-background">
+      <section className="relative overflow-hidden py-16 sm:py-24">
+        <BackgroundLines />
+        <Container className="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <MotionWrapper variants={fadeUp} className="space-y-6 sm:space-y-8">
+            <h1 className="font-heading text-3xl font-semibold tracking-tight text-textPrimary sm:text-5xl lg:text-6xl">
+              Websites that feel expensive - and perform.
+            </h1>
+            <p className="max-w-xl text-sm leading-relaxed text-textSecondary sm:text-lg">
+              Simple, modern websites for small businesses. Built for clarity,
+              performance, accessibility, and SEO so customers can trust you and
+              take action.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button href="/contact">Book a call</Button>
+              <Button href="/work" variant="secondary">
+                View work
+              </Button>
+            </div>
+          </MotionWrapper>
+          <div className="relative">
+            <div className="absolute -right-10 top-10 h-56 w-56 rounded-full bg-accent/10 blur-3xl" />
+            <div className="absolute bottom-10 left-10 h-32 w-32 rounded-full bg-white/5 blur-2xl" />
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-surface/40 py-8">
+        <Container className="flex flex-wrap items-center justify-between gap-6 text-xs uppercase tracking-[0.3em] text-textSecondary">
+          <span>Trusted by teams across the UK</span>
+          <div className="flex flex-wrap gap-4 text-sm tracking-wide text-textSecondary">
+            <span>DreamRetouching</span>
+            <span>Ekasiu</span>
+            <span>Lumen Kitchen</span>
+            <span>Northline Atelier</span>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <Container className="space-y-12">
+          <SectionHeading
+            eyebrow="Featured work"
+            title="Premium builds with measurable outcomes."
+            description="Selected projects that balance aesthetic restraint with conversion-first structure."
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} showTags={false} />
+            ))}
+          </div>
+          <div>
+            <Button href="/work" variant="secondary">
+              View all work
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-surface/50 py-16 sm:py-20">
+        <Container className="grid gap-12 md:grid-cols-[1fr_1.1fr] md:items-center">
+          <SectionHeading
+            eyebrow="Services"
+            title="Designed for clarity, engineered for conversion."
+            description="Every engagement is shaped around premium design, performance, and trust."
+          />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {servicesOverview.map((service) => (
+              <div
+                key={service}
+                className="rounded-2xl bg-background/80 p-5 text-sm text-textSecondary shadow-soft"
+              >
+                {service}
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <Container className="grid gap-12 md:grid-cols-[1fr_1.1fr]">
+          <SectionHeading
+            eyebrow="Process"
+            title="Calm, structured, and obsessively detailed."
+            description="A simple, refined process that keeps momentum and elevates quality."
+          />
+          <Timeline items={processSteps} />
+        </Container>
+      </section>
+
+      <section className="bg-surface/50 py-16 sm:py-20">
+        <Container className="space-y-12">
+          <SectionHeading
+            eyebrow="Testimonials"
+            title="Clients who value craft and outcomes."
+            description="Premium experiences backed by measurable performance."
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {testimonials.slice(0, 4).map((testimonial) => (
+              <TestimonialCard
+                key={testimonial.name}
+                testimonial={testimonial}
+              />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <Container className="space-y-12">
+          <SectionHeading
+            eyebrow="Pricing"
+            title="A clear starting point for premium builds."
+            description="Every engagement is tailored, with transparent starting tiers."
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {pricing.map((tier) => (
+              <PricingCard key={tier.title} {...tier} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-surface/50 py-16 sm:py-20">
+        <Container className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-textSecondary">
+              Ready to build
+            </p>
+            <h2 className="font-heading text-2xl font-semibold text-textPrimary sm:text-3xl">
+              Let&apos;s craft a site that feels premium and converts.
+            </h2>
+          </div>
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <Button href="/contact" className="w-full sm:w-auto">
+              Book a call
+            </Button>
+            <Button href="/work" variant="secondary" className="w-full sm:w-auto">
+              View work
+            </Button>
+          </div>
+        </Container>
+      </section>
+      <div className="sr-only">
+        <Link href="/contact">Book a call</Link>
+      </div>
     </div>
   );
 }

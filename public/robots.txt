@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ediebo.co.uk
+
+# Sitemaps
+Sitemap: https://ediebo.co.uk/sitemap.xml
