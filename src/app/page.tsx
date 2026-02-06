@@ -75,17 +75,16 @@ export default function Home() {
         <Container className="grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <MotionWrapper variants={fadeUp} className="space-y-6 sm:space-y-8">
             <h1 className="font-heading text-3xl font-semibold tracking-tight text-textPrimary sm:text-5xl lg:text-6xl">
-              Websites that feel expensive - and perform.
+              Design-led websites for businesses that take themselves seriously.
             </h1>
             <p className="max-w-xl text-sm leading-relaxed text-textSecondary sm:text-lg">
-              Simple, modern websites for small businesses. Built for clarity,
-              performance, accessibility, and SEO so customers can trust you and
-              take action.
+            We design and build modern websites for small businesses that care about quality.
+            Clean design, fast performance, and clear messaging — so customers trust you and know exactly what to do next.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button href="/contact">Book a call</Button>
               <Button href="/work" variant="secondary">
-                View work
+                See selected work
               </Button>
             </div>
           </MotionWrapper>
@@ -97,13 +96,23 @@ export default function Home() {
       </section>
 
       <section className="bg-surface/40 py-8">
-        <Container className="flex flex-wrap items-center justify-between gap-6 text-xs uppercase tracking-[0.3em] text-textSecondary">
+        <Container className="space-y-4 text-xs uppercase tracking-[0.3em] text-textSecondary">
           <span>Trusted by teams across the UK</span>
-          <div className="flex flex-wrap gap-4 text-sm tracking-wide text-textSecondary">
-            <span>DreamRetouching</span>
-            <span>Ekasiu</span>
-            <span>Lumen Kitchen</span>
-            <span>Northline Atelier</span>
+          <div className="relative overflow-hidden">
+            <div className="flex min-w-[200%] gap-10 whitespace-nowrap text-sm tracking-wide text-textSecondary [animation:marquee-left_24s_linear_infinite]">
+              <span>DreamRetouching</span>
+              <span>Ekasiu</span>
+              <span>Lumen Kitchen</span>
+              <span>Northline Atelier</span>
+              <span>Cut &amp; Crafted</span>
+              <span>Josiah&apos;s ID</span>
+              <span>DreamRetouching</span>
+              <span>Ekasiu</span>
+              <span>Lumen Kitchen</span>
+              <span>Northline Atelier</span>
+              <span>Cut &amp; Crafted</span>
+              <span>Josiah&apos;s ID</span>
+            </div>
           </div>
         </Container>
       </section>
@@ -115,6 +124,10 @@ export default function Home() {
             title="Premium builds with measurable outcomes."
             description="Selected projects that balance aesthetic restraint with conversion-first structure."
           />
+          <p className="max-w-2xl text-sm text-textSecondary sm:text-base">
+            A selection of projects where clarity, performance, and design came
+            together.
+          </p>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredProjects.map((project) => (
               <ProjectCard key={project.slug} project={project} showTags={false} />
@@ -122,7 +135,7 @@ export default function Home() {
           </div>
           <div>
             <Button href="/work" variant="secondary">
-              View all work
+              See selected work
             </Button>
           </div>
         </Container>
@@ -206,8 +219,12 @@ export default function Home() {
             <Button href="/contact" className="w-full sm:w-auto">
               Book a call
             </Button>
-            <Button href="/work" variant="secondary" className="w-full sm:w-auto">
-              View work
+            <Button
+              href="/work"
+              variant="secondary"
+              className="w-full sm:w-auto"
+            >
+              See selected work
             </Button>
           </div>
         </Container>
